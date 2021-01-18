@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace WebApplication.Controllers
 {
-    public class PlanoController : Controller
+    public class PlanController : Controller
     {
         // GET: Plano
         public ActionResult Index()
@@ -14,10 +14,10 @@ namespace WebApplication.Controllers
             return View();
         }
 
-        [Route("editarPlanos/{planoId:regex(\\d{2}):range{1,10}}/{name}")]
-        public ActionResult Edit(int planoId,string name)
+        [Route("editPlans/{planId:regex(\\d{2})}/{name}")]
+        public ActionResult Edit(int planId,string name)
         {
-            return Content("Id = " + planoId + " Name = " + name);
+            return Content("Id = " + planId + " Name = " + name);
         }
     }
 }

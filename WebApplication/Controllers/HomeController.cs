@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication.Models;
+using WebApplication.Models.ViewModel;
 
 namespace WebApplication.Controllers
 {
@@ -11,10 +12,28 @@ namespace WebApplication.Controllers
     {
         public ActionResult Index()
         {
-            Usuario usuario = new Usuario();
-            usuario.Name = "Gabriel";
+            Client client = new Client()
+            {
+                Id = 1,
+                Name = "Gabriel"
+            };
 
-            return View(usuario);
+            List<Plan> planList = new List<Plan>();
+
+            planList.Add(new Plan { Id = 1, Name = "#1", Value = 100 });
+            planList.Add(new Plan { Id = 2, Name = "#2", Value = 200 });
+            planList.Add(new Plan { Id =3, Name = "#3", Value = 150 });
+
+            ClientPlanViewModel model = new ClientPlanViewModel();
+
+            model.Client = client;
+            model.Plan = planList;
+
+
+            //ViewData["nomeUsuario"] = "Chaves";
+            //ViewBag.NomeUsuario = "Chapolin";
+
+            return View(model);
         }
 
         public ActionResult About()

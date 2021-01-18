@@ -5,9 +5,10 @@ using System.Web;
 
 namespace WebApplication.Models
 {
-    public class Usuario
+    public class Plan
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public float Value { get; set; }
     }
 }
