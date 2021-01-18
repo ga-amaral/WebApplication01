@@ -13,6 +13,13 @@ namespace WebApplication
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapMvcAttributeRoutes(); //Para permitir atributos como objeto de rotas
+
+            //routes.MapRoute("minhaPrimeiraRota",
+            //    "editarPlanos/{planoId}/{name}",
+            //    new { controller = "Plano", action = "Edit"},
+            //    new { planoId = @"\d{2}"});
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
